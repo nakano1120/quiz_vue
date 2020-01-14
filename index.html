@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>日本史一問一答</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <style>
+      body{
+          position:relative;
+          text-align:center;
+          background-color:#999999;
+      }
+
+      #app{
+          width: 80%;	/* コンテンツの横幅を指定する */
+          margin:0 auto;
+          background-color:#ffffee;
+          border-radius:3vw;
+      }
+
+      .header{
+          width:80%;
+          margin:0 auto;
+          background-color:#ffffee;
+          border-radius:3vw;
+      }
+      #quizform{
+          display: none;
+      }
+      .red{
+          color:#ff0000;
+      }
+    </style>
+</head>
+<body>
+    <div class="header"><h1>日本史一問一答</h1></div><br>
+    <div id='app'>
+      <form id="form1">
+        <select id="selectbox"><option v-for="item in items" value="0">{{item}}</option></select>
+        <input type="button" value="開始" v-on:click="star">
+      </form>
+      <div id="quizform">
+        第 {{nownumber}} 問
+        <h2>{{nowquiz}}</h2>
+        <input id="mes" type="text" v-model="message" @keydown.enter="nextquestion">
+      </div>
+      <h2 class="red">{{ correct }}</h2>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
